@@ -1,0 +1,33 @@
+{
+  "name": "concerts",
+  "version": "1.0.0",
+  "description": "Social network for concert-goers",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmeganshaw/concerts.git"
+  },
+  "author": "Megan Shaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmeganshaw/concerts/issues"
+  },
+  "homepage": "https://github.com/mmeganshaw/concerts#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
