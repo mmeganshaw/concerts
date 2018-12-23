@@ -1,6 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+const users = require("./routes/api/users");
+const posts = require("./routes/api/posts");
+const profile = require("./routes/api/profile");
+
 // initializing app as express
 const app = express();
 
@@ -14,8 +18,13 @@ mongoose
   .catch(err => console.log(err));
 
 // initial test route
-app.get("/", (req, res) => res.send("Hello World"));
+app.get("/", (req, res) => res.send("Hello Yo"));
 
-const port = process.env.PORT || 5000;
+// Use Routes
+app.use("/api/users", users);
+app.use("/api/profile", profile);
+app.use("/api/posts", posts);
+
+const port = process.env.PORT || 4000;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
