@@ -1,9 +1,11 @@
 // bringing in express
 const express = require("express");
-// setting router to the Express Router that's been brought in
+
+// defining router
 const router = express.Router();
 
-// sending a json object to the route "/api/posts/test"
-router.get("/test", (req, res) => res.json({ msg: "Posts works!" }));
+// declaring the test route
+router.get("/test", (req, res) => res.json({ msg: "This sucks man" }));
 
+// exporting router to use in server.js
 module.exports = router;
