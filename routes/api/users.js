@@ -11,6 +11,10 @@ const gravatar = require("gravatar");
 // requiring the User model for posting new user registration
 const User = require("../../models/User");
 
+const jwt = require("jsonwebtoken"); 
+
+const keys = require("../../config/keys");
+
 // @router GET request to api/users/test
 // @desc Tests users route
 // @access Public
@@ -71,7 +75,21 @@ router.post("/login", (req, res) => {
     }
     bcrypt.compare(password, user.password).then(Matched => {
       if (Matched) {
-        return res.json({ msg: "User is logged in" });
+        // return res.json({ msg: "User is logged in" });
+
+        // create payload
+        const payload = { id: user.id, name: user.name };
+
+
+        // sign jwt
+        jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+          res.json({
+            success: true,
+            token: "Bearer " + token
+          })
+        })
+
+
       } else {
         return res.status(400).json({ password: "Password is incorrect bud." });
       }
